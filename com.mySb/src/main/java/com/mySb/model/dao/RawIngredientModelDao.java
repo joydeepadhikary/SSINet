@@ -13,6 +13,6 @@ public interface RawIngredientModelDao extends MongoRepository<RawIngredientMode
 	RawIngredientModel getIngredientByName(String name);
 	RawIngredientModel getIngredientById(String id);	
 	RawIngredientModel persistNewRawIngredientModel(RawIngredientModel model);
-	
+	List<RawIngredientModel> selectAllRawIngredientModel();
 	
 }

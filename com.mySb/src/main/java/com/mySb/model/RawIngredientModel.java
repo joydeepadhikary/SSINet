@@ -1,14 +1,11 @@
 package com.mySb.model;
 
-import java.util.UUID;
-
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Document(collection="RAW_INGREDIENTS")
+@Document(collection="RAW_INGREDIENT")
 public class RawIngredientModel {
 	@Id
 	private String id;

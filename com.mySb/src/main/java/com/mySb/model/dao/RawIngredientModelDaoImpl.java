@@ -3,19 +3,26 @@ package com.mySb.model.dao;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Repository;
 
+import com.mySb.ApplicationConfig;
 import com.mySb.model.RawIngredientModel;
 
 @Repository("RawDao")
 public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 
-	private JdbcTemplate jdbdTemplate;
+	ApplicationContext ctx = new ClassPathXmlApplicationContext("MongoDbConfig.xml");
+	MongoOperations mongoOperation = 
+            (MongoOperations) ctx.getBean("mongoTemplate");
+	
 	@Override
 	public List<RawIngredientModel> getAllRawIngredient() {
 		// TODO Auto-generated method stub
@@ -42,14 +49,13 @@ public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 
 	@Override
 	public <S extends RawIngredientModel> List<S> saveAll(Iterable<S> entities) {
-		// TODO Auto-generated method stub
+	    
 		return null;
 	}
 
 	@Override
 	public List<RawIngredientModel> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return mongoOperation.findAll(RawIngredientModel.class);
 	}
 
 	@Override
@@ -132,7 +138,7 @@ public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 
 	@Override
 	public void deleteAll(Iterable<? extends RawIngredientModel> entities) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -164,6 +170,11 @@ public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 	public <S extends RawIngredientModel> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<RawIngredientModel> selectAllRawIngredientModel() {		
+		return null;
 	}
 
 }
