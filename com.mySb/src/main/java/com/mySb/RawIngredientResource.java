@@ -19,7 +19,6 @@ public class RawIngredientResource {
 
 	@Autowired
 	public RawIngredientResource(RawIngredientService service) {
-		super();
 		this.service = service;
 	}
 	

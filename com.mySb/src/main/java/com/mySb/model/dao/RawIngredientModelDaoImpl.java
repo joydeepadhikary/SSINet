@@ -19,9 +19,13 @@ import com.mySb.model.RawIngredientModel;
 @Repository("RawDao")
 public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 
-	ApplicationContext ctx = new ClassPathXmlApplicationContext("MongoDbConfig.xml");
-	MongoOperations mongoOperation = 
-            (MongoOperations) ctx.getBean("mongoTemplate");
+	private final ApplicationContext ctx;
+	private final MongoOperations mongoOperation;
+	
+	public RawIngredientModelDaoImpl() {
+		ctx = new ClassPathXmlApplicationContext("MongoDbConfig.xml");
+		mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
+	}
 	
 	@Override
 	public List<RawIngredientModel> getAllRawIngredient() {
