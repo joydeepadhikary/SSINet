@@ -3,13 +3,16 @@ package com.mySb;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mySb.model.RawIngredientModel;
 import com.mySb.services.RawIngredientService;
+
 
 @RestController
 @RequestMapping("ssinet/v1/rawingredients")

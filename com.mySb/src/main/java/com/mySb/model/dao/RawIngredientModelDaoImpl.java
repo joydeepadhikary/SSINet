@@ -4,16 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.mySb.ApplicationConfig;
 import com.mySb.model.RawIngredientModel;
 
 @Repository("RawDao")
@@ -26,40 +25,17 @@ public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 		ctx = new ClassPathXmlApplicationContext("MongoDbConfig.xml");
 		mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
 	}
-	
-	@Override
-	public List<RawIngredientModel> getAllRawIngredient() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RawIngredientModel getIngredientByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RawIngredientModel getIngredientById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RawIngredientModel persistNewRawIngredientModel(RawIngredientModel model) {	
-		return model;
-		
-	}
 
 	@Override
 	public <S extends RawIngredientModel> List<S> saveAll(Iterable<S> entities) {
-	    
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<RawIngredientModel> findAll() {
-		return mongoOperation.findAll(RawIngredientModel.class);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -142,7 +118,7 @@ public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 
 	@Override
 	public void deleteAll(Iterable<? extends RawIngredientModel> entities) {
-		
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -177,8 +153,34 @@ public class RawIngredientModelDaoImpl implements RawIngredientModelDao {
 	}
 
 	@Override
-	public List<RawIngredientModel> selectAllRawIngredientModel() {		
+	public List<RawIngredientModel> getAllRawIngredient() {
+		return mongoOperation.findAll(RawIngredientModel.class);
+		
+	}
+
+	@Override
+	public RawIngredientModel getIngredientByName(String name) {
+		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public RawIngredientModel getIngredientById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RawIngredientModel persistNewRawIngredientModel(RawIngredientModel model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RawIngredientModel> selectAllRawIngredientModel() {
+		return mongoOperation.findAll(RawIngredientModel.class);
+	}
+	
+	
 
 }

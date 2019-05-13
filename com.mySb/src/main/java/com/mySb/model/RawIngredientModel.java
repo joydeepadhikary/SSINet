@@ -2,10 +2,12 @@ package com.mySb.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document(collection="RAW_INGREDIENT")
+@Component
 public class RawIngredientModel {
 	@Id
 	private String id;
